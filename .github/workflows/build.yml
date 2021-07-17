@@ -34,7 +34,7 @@ jobs:
       - name: West Zephyr export
         run: west zephyr-export
       - name: West Build (BLe Chiffre)
-        run: west build "-s zmk/app -b ble_chiffre -d ble_chiffre -- -DZMK_CONFIG=/github/workspace/config"
+        run: west build -s zmk/app -b ble_chiffre -d ble_chiffre -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
       #   uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
       #   id: west-build-ble-chiffre
       #   with:
