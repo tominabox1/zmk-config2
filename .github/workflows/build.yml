@@ -65,37 +65,31 @@ jobs:
         with:
           name: qaz
           path: qaz_nice_nano.uf2
-      # - name: West Build (Microdox-left)
-      #   uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-      #   id: west-build-microdox-left
-      #   with:
-      #     args: 'build "-s zmk/app -b nice_nano -d md_left -- -DSHIELD=microdox_left -DZMK_CONFIG=/github/workspace/config/microdox"'
-      # - name: Microdox_Left Kconfig file
-      #   run: cat md_left/zephyr/.config | grep -v "^#" | grep -v "^$"
-      # - name: Microdox_Left DTS File
-      #   if: ${{ always() }}
-      #   run: cat -n md_left/zephyr/nice_nano.dts.pre.tmp
-      # - name: Rename zmk.uf2
-      #   run: cp md_left/zephyr/zmk.uf2 microdox_left_nice_nano.uf2
-      # - name: Archive (Microdox_Left)
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: microdox_left
-      #     path: microdox_left_nice_nano.uf2
-      # - name: West Build (Microdox-right)
-      #   uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-      #   id: west-build-microdox-right
-      #   with:
-      #     args: 'build "-s zmk/app -b nice_nano -d md_right -- -DSHIELD=microdox_right -DZMK_CONFIG=/github/workspace/config/microdox"'
-      # - name: Microdox_Right Kconfig file
-      #   run: cat md_right/zephyr/.config | grep -v "^#" | grep -v "^$"
-      # - name: Rename zmk.uf2
-      #   run: cp md_right/zephyr/zmk.uf2 microdox_right_nice_nano.uf2
-      # - name: Archive (Microdox_Right)
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: microdox_right
-      #     path: microdox_right_nice_nano.uf2
+      - name: West Build (Microdox-left)
+        run: build -s zmk/app -b nice_nano -d md_left -- -DSHIELD=microdox_left -DZMK_CONFIG="${GITHUB_WORKSPACE}/config/microdox"
+      - name: Microdox_Left Kconfig file
+        run: cat md_left/zephyr/.config | grep -v "^#" | grep -v "^$"
+      - name: Microdox_Left DTS File
+        if: ${{ always() }}
+        run: cat -n md_left/zephyr/nice_nano.dts.pre.tmp
+      - name: Rename zmk.uf2
+        run: cp md_left/zephyr/zmk.uf2 microdox_left_nice_nano.uf2
+      - name: Archive (Microdox_Left)
+        uses: actions/upload-artifact@v2
+        with:
+          name: microdox_left
+          path: microdox_left_nice_nano.uf2
+      - name: West Build (Microdox-right)
+        run: build -s zmk/app -b nice_nano -d md_right -- -DSHIELD=microdox_right -DZMK_CONFIG="${GITHUB_WORKSPACE}/config/microdox"
+      - name: Microdox_Right Kconfig file
+        run: cat md_right/zephyr/.config | grep -v "^#" | grep -v "^$"
+      - name: Rename zmk.uf2
+        run: cp md_right/zephyr/zmk.uf2 microdox_right_nice_nano.uf2
+      - name: Archive (Microdox_Right)
+        uses: actions/upload-artifact@v2
+        with:
+          name: microdox_right
+          path: microdox_right_nice_nano.uf2
       # - name: West Build (Lily58)
       #   uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
       #   id: west-build-lily58
