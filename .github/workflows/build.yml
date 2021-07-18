@@ -51,23 +51,20 @@ jobs:
         with:
           name: ble_chiffre
           path: ble_chiffre.uf2
-      # - name: West Build (QAZ)
-      #   uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-      #   id: west-build-qaz
-      #   with:
-      #     args: 'build "-s zmk/app -b nice_nano -d qaz -- -DSHIELD=qaz -DZMK_CONFIG=/github/workspace/config/qaz"'
-      # - name: QAZ Kconfig file
-      #   run: cat qaz/zephyr/.config | grep -v "^#" | grep -v "^$"
-      # - name: QAZ DTS File
-      #   if: ${{ always() }}
-      #   run: cat -n qaz/zephyr/nice_nano.dts.pre.tmp
-      # - name: Rename zmk.uf2
-      #   run: cp qaz/zephyr/zmk.uf2 qaz_nice_nano.uf2
-      # - name: Archive (QAZ)
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: qaz
-      #     path: qaz_nice_nano.uf2
+      - name: West Build (QAZ)
+        run: west build -s zmk/app -b nice_nano -d qaz -- -DSHIELD=qaz -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+      - name: QAZ Kconfig file
+        run: cat qaz/zephyr/.config | grep -v "^#" | grep -v "^$"
+      - name: QAZ DTS File
+        if: ${{ always() }}
+        run: cat -n qaz/zephyr/nice_nano.dts.pre.tmp
+      - name: Rename zmk.uf2
+        run: cp qaz/zephyr/zmk.uf2 qaz_nice_nano.uf2
+      - name: Archive (QAZ)
+        uses: actions/upload-artifact@v2
+        with:
+          name: qaz
+          path: qaz_nice_nano.uf2
       # - name: West Build (Microdox-left)
       #   uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
       #   id: west-build-microdox-left
