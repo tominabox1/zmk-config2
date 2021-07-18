@@ -52,7 +52,7 @@ jobs:
           name: ble_chiffre
           path: ble_chiffre.uf2
       - name: West Build (QAZ)
-        run: west build -s zmk/app -b nice_nano -d qaz -- -DSHIELD=qaz -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+        run: west build -s zmk/app -b nice_nano -d qaz -- -DSHIELD=qaz -DZMK_CONFIG="${GITHUB_WORKSPACE}/config/qaz"
       - name: QAZ Kconfig file
         run: cat qaz/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: QAZ DTS File
