@@ -2,14 +2,6 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: tominabox1
-      url-base: https://github.com/tominabox1/
-    - name: nicell
-      url-base: https://github.com/Nicell/
-    - name: okke
-      url-base: https://github.com/okke-formsma
-    - name: pete
-      url-base: https://github.com/petejohanson/
   projects:
     - name: zmk
       remote: zmkfirmware
