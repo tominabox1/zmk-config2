@@ -12,8 +12,8 @@ manifest:
       url-base: https://github.com/petejohanson/
   projects:
     - name: zmk
-      remote: zmkfirmware
-      revision: main
+      remote: pete
+      revision: ble/hog-characteristic-perm-tweaks-macos
       import: app/west.yml
   self:
     path: config
