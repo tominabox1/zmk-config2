@@ -152,7 +152,7 @@
     &kp Z &kp X &kp C &kp V &kp B &kp K &kp M &com_col SEMI COMMA &kp DOT &kp FSLH
     &kp ESC &kp TAB &bh 2 RET &bh 1 SPACE &bh 2 RET &kp C_PP
             >;
-			sensor-bindings = <&inc_dec_kp C_FF C_RW>;
+			sensor-bindings = <&inc_dec_kp C_NEXT C_PREV>;
         };
 
         num_sym {
@@ -162,7 +162,7 @@
     &kp DEL &none &kp LBKT &kp LPAR &kp UNDER &none &kp RPAR &kp RBKT &kp DOT &kp BSLH
     &kp GRAVE &none &trans &trans &kp RET &kp FSLH
             >;
-			sensor-bindings = <&inc_dec_kp C_FF C_RW>>;
+			sensor-bindings = <&inc_dec_kp C_NEXT C_PREV>>;
         };
 
     nav {
