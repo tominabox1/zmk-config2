@@ -162,7 +162,7 @@
     &kp DEL &none &kp LBKT &kp LPAR &kp UNDER &none &kp RPAR &kp RBKT &kp DOT &kp BSLH
     &kp GRAVE &none &trans &trans &kp RET &kp FSLH
             >;
-			sensor-bindings = <&inc_dec_kp C_NEXT C_PREV>>;
+			sensor-bindings = <&inc_dec_kp C_NEXT C_PREV>;
         };
 
     nav {
