@@ -135,13 +135,13 @@
 		{
 			timeout-ms = <40>;
 			key-positions = <2 3>;
-			bindings = <&kp ENT>;
+			bindings = <&kp RET;
 		};
 		combo_enter2 
 		{
 			timeout-ms = <40>;
 			key-positions = <17 18>;
-			bindings = <&kp ENT>;
+			bindings = <&kp RET>;
 		};
 	};
 };
