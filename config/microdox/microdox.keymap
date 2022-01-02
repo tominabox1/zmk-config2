@@ -135,7 +135,7 @@
 		{
 			timeout-ms = <40>;
 			key-positions = <2 3>;
-			bindings = <&kp RET;
+			bindings = <&kp RET>;
 		};
 		combo_enter2 
 		{
