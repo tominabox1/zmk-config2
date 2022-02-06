@@ -121,6 +121,18 @@
 			key-positions = <7 8 9>;
 			bindings = <&kp DEL>;
 		};
+		combo_ent 
+		{
+			timeout-ms = <30>;
+			key-positions = <17 18>;
+			bindings = <&kp RET>;
+		};
+		combo_ent2
+		{
+			timeout-ms = <30>;
+			key-positions = <2 3>;
+			bindings = <&kp RET>;
+		};
 	};
 };
 
