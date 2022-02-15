@@ -41,56 +41,56 @@
             layers = <0 1 2 3 4 5>;
             timeout-ms = <50>;
             // W + F
-            key-positions = <2 3>;
+            key-positions = <1 2>;
             bindings = <&kp TAB>;
         };
         combo_uy_del {
             layers = <0 1 2 3 4 5>;
             timeout-ms = <50>;
             // U + Y
-            key-positions = <8 9>;
+            key-positions = <7 8;
             bindings = <&kp DEL>;
         };
         combo_gm_capsword {
             layers = <0 1 2 3 4 5>;
             timeout-ms = <100>;
             // G + M
-            key-positions = <17 19>;
+            key-positions = <14 15>;
             bindings = <&caps_word>;
         };
         combo_xc_ctrl {
             layers = <0 1 2 3 4 5>;
             timeout-ms = <50>;
             // Z + X
-            key-positions = <27 28>;
+            key-positions = <21 22>;
             bindings = <&sk LCTL>;
         };
         combo_commadot_shift {
             layers = <0 1 2 3 4 5>;
             timeout-ms = <50>;
             // , + . = shift
-            key-positions = <34 35>;
+            key-positions = <27 28>;
             bindings = <&skq LSHFT>;
         };
         combo_cmd {
             layers = <0 1 2 3 4 5>;
             timeout-ms = <50>;
             // SYM + SPC = CMD
-            key-positions = <42 43>;
+            key-positions = <30 31>;
             bindings = <&sk LCMD>;
         };
         combo_opt {
             layers = <0 1 2 3 4 5>;
             timeout-ms = <50>;
             // NUM + ENT = OPT
-            key-positions = <45 46>;
+            key-positions = <32 33>;
             bindings = <&sk LALT>;
         };
         combo_ent {
             layers = <0 1 2 3 4 5>;
             timeout-ms = <80>; 
             // SPC + BSPC = ENT
-            key-positions = <43 45>;
+            key-positions = <31 32>;
             bindings = <&kp RET>;
         };
     };
