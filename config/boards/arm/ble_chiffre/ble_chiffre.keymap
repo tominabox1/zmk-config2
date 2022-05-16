@@ -86,6 +86,19 @@
             key-positions = <32 33>;
             bindings = <&sk LALT>;
         };
+        combo_opt_alt {
+            layers = <0 1 2 3 4 5>;
+            timeout-ms = <50>;
+            key-positions = <6 7>;
+            bindings = <&sk LALT>;
+        };
+        combo_cmd_alt {
+            layers = <0 1 2 3 4 5>;
+            timeout-ms = <50>;
+            // NUM + ENT = OPT
+            key-positions = <2 3>;
+            bindings = <&sk LCMD>;
+        };
         combo_ent {
             layers = <0 1 2 3 4 5>;
             timeout-ms = <80>; 
