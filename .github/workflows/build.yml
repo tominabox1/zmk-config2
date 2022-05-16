@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: zmkfirmware/zmk-build-arm:2.5
+      image: zmkfirmware/zmk-build-arm:stable
     name: Build
     steps:
       - name: Checkout
@@ -41,9 +41,6 @@ jobs:
       #     args: 'build "-s zmk/app -b ble_chiffre -d ble_chiffre -- -DZMK_CONFIG=/github/workspace/config"'
       # - name: BLe_Chffre Kconfig file
       #   run: cat ble_chiffre/zephyr/.config | grep -v "^#" | grep -v "^$"
-      - name: BLe Chiffre DTS File
-        if: ${{ always() }}
-        run: cat -n ble_chiffre/zephyr/ble_chiffre.dts.pre.tmp
       - name: Rename zmk.uf2
         run: cp ble_chiffre/zephyr/zmk.uf2 ble_chiffre.uf2
       - name: Archive (BLe_Chiffre)
