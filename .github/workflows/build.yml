@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: zmkfirmware/zmk-build-arm:2.5
+      image: zmkfirmware/zmk-build-arm:stable
     name: Build
     steps:
       - name: Checkout
@@ -41,9 +41,6 @@ jobs:
       #     args: 'build "-s zmk/app -b ble_chiffre -d ble_chiffre -- -DZMK_CONFIG=/github/workspace/config"'
       # - name: BLe_Chffre Kconfig file
       #   run: cat ble_chiffre/zephyr/.config | grep -v "^#" | grep -v "^$"
-      - name: BLe Chiffre DTS File
-        if: ${{ always() }}
-        run: cat -n ble_chiffre/zephyr/ble_chiffre.dts.pre.tmp
       - name: Rename zmk.uf2
         run: cp ble_chiffre/zephyr/zmk.uf2 ble_chiffre.uf2
       - name: Archive (BLe_Chiffre)
@@ -51,45 +48,39 @@ jobs:
         with:
           name: ble_chiffre
           path: ble_chiffre.uf2
-      - name: West Build (QAZ)
-        run: west build -s zmk/app -b nice_nano -d qaz -- -DSHIELD=qaz -DZMK_CONFIG="${GITHUB_WORKSPACE}/config/qaz"
-      - name: QAZ Kconfig file
-        run: cat qaz/zephyr/.config | grep -v "^#" | grep -v "^$"
-      - name: QAZ DTS File
-        if: ${{ always() }}
-        run: cat -n qaz/zephyr/nice_nano.dts.pre.tmp
-      - name: Rename zmk.uf2
-        run: cp qaz/zephyr/zmk.uf2 qaz_nice_nano.uf2
-      - name: Archive (QAZ)
-        uses: actions/upload-artifact@v2
-        with:
-          name: qaz
-          path: qaz_nice_nano.uf2
-      - name: West Build (Microdox-left)
-        run: west build -s zmk/app -b nice_nano -d md_left -- -DSHIELD=microdox_left -DZMK_CONFIG="${GITHUB_WORKSPACE}/config/microdox"
-      - name: Microdox_Left Kconfig file
-        run: cat md_left/zephyr/.config | grep -v "^#" | grep -v "^$"
-      - name: Microdox_Left DTS File
-        if: ${{ always() }}
-        run: cat -n md_left/zephyr/nice_nano.dts.pre.tmp
-      - name: Rename zmk.uf2
-        run: cp md_left/zephyr/zmk.uf2 microdox_left_nice_nano.uf2
-      - name: Archive (Microdox_Left)
-        uses: actions/upload-artifact@v2
-        with:
-          name: microdox_left
-          path: microdox_left_nice_nano.uf2
-      - name: West Build (Microdox-right)
-        run: west build -s zmk/app -b nice_nano -d md_right -- -DSHIELD=microdox_right -DZMK_CONFIG="${GITHUB_WORKSPACE}/config/microdox"
-      - name: Microdox_Right Kconfig file
-        run: cat md_right/zephyr/.config | grep -v "^#" | grep -v "^$"
-      - name: Rename zmk.uf2
-        run: cp md_right/zephyr/zmk.uf2 microdox_right_nice_nano.uf2
-      - name: Archive (Microdox_Right)
-        uses: actions/upload-artifact@v2
-        with:
-          name: microdox_right
-          path: microdox_right_nice_nano.uf2
+      # - name: West Build (QAZ)
+      #   run: west build -s zmk/app -b nice_nano -d qaz -- -DSHIELD=qaz -DZMK_CONFIG="${GITHUB_WORKSPACE}/config/qaz"
+      # - name: QAZ Kconfig file
+      #   run: cat qaz/zephyr/.config | grep -v "^#" | grep -v "^$"
+      # - name: Rename zmk.uf2
+      #   run: cp qaz/zephyr/zmk.uf2 qaz_nice_nano.uf2
+      # - name: Archive (QAZ)
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: qaz
+      #     path: qaz_nice_nano.uf2
+      # - name: West Build (Microdox-left)
+      #   run: west build -s zmk/app -b nice_nano -d md_left -- -DSHIELD=microdox_left -DZMK_CONFIG="${GITHUB_WORKSPACE}/config/microdox"
+      # - name: Microdox_Left Kconfig file
+      #   run: cat md_left/zephyr/.config | grep -v "^#" | grep -v "^$"
+      # - name: Rename zmk.uf2
+      #   run: cp md_left/zephyr/zmk.uf2 microdox_left_nice_nano.uf2
+      # - name: Archive (Microdox_Left)
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: microdox_left
+      #     path: microdox_left_nice_nano.uf2
+      # - name: West Build (Microdox-right)
+      #   run: west build -s zmk/app -b nice_nano -d md_right -- -DSHIELD=microdox_right -DZMK_CONFIG="${GITHUB_WORKSPACE}/config/microdox"
+      # - name: Microdox_Right Kconfig file
+      #   run: cat md_right/zephyr/.config | grep -v "^#" | grep -v "^$"
+      # - name: Rename zmk.uf2
+      #   run: cp md_right/zephyr/zmk.uf2 microdox_right_nice_nano.uf2
+      # - name: Archive (Microdox_Right)
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: microdox_right
+      #     path: microdox_right_nice_nano.uf2
       - name: West Build (Lily58)
         run: west build -s zmk/app -b nice_nano -d lily58 -- -DSHIELD=lily58_left -DZMK_CONFIG="${GITHUB_WORKSPACE}/config/lily58"
       - name: Lily58 Kconfig file
