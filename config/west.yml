@@ -15,7 +15,7 @@ manifest:
   projects:
     - name: zmk
       remote: ftc
-      revision: main
+      revision: mouse-ftc
       import: app/west.yml
   self:
     path: config
