@@ -10,6 +10,8 @@ manifest:
       url-base: https://github.com/okke-formsma
     - name: pete
       url-base: https://github.com/petejohanson/
+    - name: ftc
+      url-base: https://github.com/ftc
   projects:
     - name: zmk
       remote: ftc
