@@ -12,7 +12,7 @@ manifest:
       url-base: https://github.com/petejohanson/
   projects:
     - name: zmk
-      remote: zmkfirmware
+      remote: ftc
       revision: main
       import: app/west.yml
   self:
