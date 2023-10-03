@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: zmkfirmware/zmk-build-arm:2.5
+      image: zmkfirmware/zmk-build-arm:stable
     name: Build
     steps:
       - name: Checkout
@@ -35,9 +35,12 @@ jobs:
         run: west zephyr-export
       - name: West Build (BLe Chiffre)
         run: west build -s zmk/app -b ble_chiffre -d ble_chiffre -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
-      - name: BLe Chiffre DTS File
-        if: ${{ always() }}
-        run: cat -n ble_chiffre/zephyr/ble_chiffre.dts.pre.tmp
+      #   uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
+      #   id: west-build-ble-chiffre
+      #   with:
+      #     args: 'build "-s zmk/app -b ble_chiffre -d ble_chiffre -- -DZMK_CONFIG=/github/workspace/config"'
+      # - name: BLe_Chffre Kconfig file
+      #   run: cat ble_chiffre/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
         run: cp ble_chiffre/zephyr/zmk.uf2 ble_chiffre.uf2
       - name: Archive (BLe_Chiffre)
