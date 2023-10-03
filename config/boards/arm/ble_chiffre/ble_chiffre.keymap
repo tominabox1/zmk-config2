@@ -21,8 +21,8 @@
 			label = "Bootloader Tap - Reset Hold";
 			#binding-cells = <2>;
 			tapping_term_ms = <200>;
-            flavor = "balanced";
-			bindings = <&reset>, <&bootloader>;
+            		flavor = "balanced";
+			bindings = <&sys_reset>, <&bootloader>;
         };
 
         bh: layer_taps 
