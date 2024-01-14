@@ -1,50 +1,5 @@
 on: [push, pull_request, workflow_dispatch]
 
-name: Build
-
 jobs:
   build:
-    runs-on: ubuntu-latest
-    container:
-      image: zmkfirmware/zmk-build-arm:stable
-    name: Build
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Cache west modules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-zephyr-modules
-        with:
-          path: |
-            modules/
-            tools/
-            zephyr/
-            bootloader/
-            zmk/
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('manifest-dir/west.yml') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - name: West Init
-        run: west init -l config
-      - name: West Update
-        run: west update
-      - name: West Zephyr export
-        run: west zephyr-export
-      - name: West Build (BLe Chiffre)
-        run: west build -s zmk/app -b ble_chiffre -d ble_chiffre -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
-      #   uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
-      #   id: west-build-ble-chiffre
-      #   with:
-      #     args: 'build "-s zmk/app -b ble_chiffre -d ble_chiffre -- -DZMK_CONFIG=/github/workspace/config"'
-      # - name: BLe_Chffre Kconfig file
-      #   run: cat ble_chiffre/zephyr/.config | grep -v "^#" | grep -v "^$"
-      - name: Rename zmk.uf2
-        run: cp ble_chiffre/zephyr/zmk.uf2 ble_chiffre.uf2
-      - name: Archive (BLe_Chiffre)
-        uses: actions/upload-artifact@v2
-        with:
-          name: ble_chiffre
-          path: ble_chiffre.uf2
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
