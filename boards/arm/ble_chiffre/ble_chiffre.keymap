@@ -9,6 +9,11 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
 
+/*
+ * This is the default keymap. You shouldn't edit it. Changes won't be picked up from here.
+ * It exists to give you something to copy back into the config folder in a worst-case scenario.
+ */
+
 / {
     behaviors {
         rst: boot_reset {
