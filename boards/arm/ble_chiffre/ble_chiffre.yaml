@@ -1,5 +1,5 @@
 identifier: ble_chiffre
-name: BLe_Chiffre
+name: BLe Chiffre
 type: mcu
 arch: arm
 toolchain:
