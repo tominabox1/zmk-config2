@@ -6,27 +6,8 @@ if BOARD_BLE_CHIFFRE
 config ZMK_KEYBOARD_NAME
     default "BLe Chiffre"
 
-if USB
-
-config USB_NRFX
-    default y
-
-config USB_DEVICE_STACK
-    default y
-
-endif # USB
-
 config BT_CTLR
     default BT
-
-config ZMK_BLE
-    default y
-
-config ZMK_USB
-    default y
-
-config ZMK_BATTERY_VOLTAGE_DIVIDER
-    default y
 
 if ZMK_DISPLAY
 
@@ -36,10 +17,6 @@ config I2C
 config SSD1306
     default y
 
-config SSD1306_REVERSE_MODE
-    default y
-
 endif # ZMK_DISPLAY
 
 endif # BOARD_BLE_CHIFFRE
-
