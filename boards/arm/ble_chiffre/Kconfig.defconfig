@@ -19,24 +19,12 @@ endif # USB
 config BT_CTLR
     default BT
 
-config ZMK_BLE
-    default y
-
-config ZMK_USB
-    default y
-
-config ZMK_BATTERY_VOLTAGE_DIVIDER
-    default y
-
 if ZMK_DISPLAY
 
 config I2C
     default y
 
 config SSD1306
-    default y
-
-config SSD1306_REVERSE_MODE
     default y
 
 endif # ZMK_DISPLAY
