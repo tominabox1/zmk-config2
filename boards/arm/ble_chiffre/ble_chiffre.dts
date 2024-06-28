@@ -8,6 +8,8 @@
 #include <nordic/nrf52840_qiaa.dtsi>
 #include <dt-bindings/zmk/matrix_transform.h>
 
+#include "ble_chiffre-pinctrl.dtsi"
+
 / {
     model = "BLe Chiffre";
     compatible = "tominabox,ble-chiffre";
@@ -92,22 +94,6 @@
 
 &gpio1 {
     status = "okay";
-};
-
-&pinctrl {
-     i2c0_default: i2c0_default {
-        group1 {
-        psels = <NRF_PSEL(TWIM_SDA, 0, 21)>,
-                <NRF_PSEL(TWIM_SCL, 0, 19)>;
-        };
-    };
-    i2c0_sleep: i2c0_sleep {
-        group1 {
-        psels = <NRF_PSEL(TWIM_SDA, 0, 21)>,
-                <NRF_PSEL(TWIM_SCL, 0, 19)>;
-        low-power-enable;
-        };
-    };
 };
 
 &i2c0 {
