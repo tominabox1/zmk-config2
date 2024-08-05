@@ -1,0 +1,57 @@
+/*
+ * Copyright (c) 2024 Pete Johanson, TJ Campie
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <physical_layouts.dtsi>
+
+/ {
+    chosen {
+        zmk,physical-layout = &default_layout;
+    };
+
+    default_layout: default_layout {
+        compatible = "zmk,physical-layout";
+        display-name = "Default";
+
+        transform = <&default_transform>;
+
+        keys  //                     w   h    x    y     rot   rx     ry
+            = <&key_physical_attrs 100 100    0   50     750  600  (-50)>
+            , <&key_physical_attrs 100 100  100   25     750  600  (-50)>
+            , <&key_physical_attrs 100 100  200    0     750  600  (-50)>
+            , <&key_physical_attrs 100 100  300   25     750  600  (-50)>
+            , <&key_physical_attrs 100 100  400   25     750  600  (-50)>
+            , <&key_physical_attrs 100 100  700   25  (-750)  575  (-50)>
+            , <&key_physical_attrs 100 100  800   25  (-750)  575  (-50)>
+            , <&key_physical_attrs 100 100  900    0  (-750)  575  (-50)>
+            , <&key_physical_attrs 100 100 1000   25  (-750)  575  (-50)>
+            , <&key_physical_attrs 100 100 1100   50  (-750)  575  (-50)>
+            , <&key_physical_attrs 100 100    0  150     750  600  (-50)>
+            , <&key_physical_attrs 100 100  100  125     750  600  (-50)>
+            , <&key_physical_attrs 100 100  200  100     750  600  (-50)>
+            , <&key_physical_attrs 100 100  300  125     750  600  (-50)>
+            , <&key_physical_attrs 100 100  400  125     750  600  (-50)>
+            , <&key_physical_attrs 100 100  700  125  (-750)  575  (-50)>
+            , <&key_physical_attrs 100 100  800  125  (-750)  575  (-50)>
+            , <&key_physical_attrs 100 100  900  100  (-750)  575  (-50)>
+            , <&key_physical_attrs 100 100 1000  125  (-750)  575  (-50)>
+            , <&key_physical_attrs 100 100 1100  150  (-750)  575  (-50)>
+            , <&key_physical_attrs 100 100    0  250     750  600  (-50)>
+            , <&key_physical_attrs 100 100  100  225     750  600  (-50)>
+            , <&key_physical_attrs 100 100  200  200     750  600  (-50)>
+            , <&key_physical_attrs 100 100  300  225     750  600  (-50)>
+            , <&key_physical_attrs 100 100  400  225     750  600  (-50)>
+            , <&key_physical_attrs 100 100  700  225  (-750)  575  (-50)>
+            , <&key_physical_attrs 100 100  800  225  (-750)  575  (-50)>
+            , <&key_physical_attrs 100 100  900  200  (-750)  575  (-50)>
+            , <&key_physical_attrs 100 100 1000  225  (-750)  575  (-50)>
+            , <&key_physical_attrs 100 100 1100  250  (-750)  575  (-50)>
+            , <&key_physical_attrs 125 100  175  325     750  600  (-50)>
+            , <&key_physical_attrs 200 100  300  325     750  600  (-50)>
+            , <&key_physical_attrs 200 100  700  325  (-750)  575  (-50)>
+            , <&key_physical_attrs 125 100  900  325  (-750)  575  (-50)>
+            ;
+    };
+};
